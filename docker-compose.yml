@@ -1,0 +1,17 @@
+version: '3'
+services:
+  app:
+    build: .
+    working_dir: /stable-diffusion
+    tty: true
+    volumes:
+      - ./stable-diffusion-v-1-4-original/:/stable-diffusion/models/ldm/stable-diffusion-v1/
+      - ./outputs:/stable-diffusion/outputs
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    environment: 
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
