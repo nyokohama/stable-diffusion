@@ -17,3 +17,5 @@ RUN git clone https://github.com/CompVis/stable-diffusion && \
     conda init bash && \
     conda env create -f environment.yaml && \
     echo "conda activate ldm" >> ~/.bashrc
+
+WORKDIR /stable-diffusion
